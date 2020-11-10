@@ -56,3 +56,14 @@
    - `persistReducer()`는 `rootReducer`의 변화를 감지하고 그 변화를 핸드폰에 저장한다.
    - 또한 `reducer`를 `load`할 때 `disk`에서 `reducer`를 `loading` 해온다.
    - `redux toolkit`은 자체 `action`이 있기 때문에 `persist`에서 만든 `action`은 `Redux store`가 무시할 수 있도록 설정한다.
+
+### React Navigation
+
+1. `npm install @react-navigation/native`
+2. `expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view`
+3. `npm install @react-navigation/stack`
+4. `npm install styled-components`
+
+### Image Blur
+
+`expo install expo-blur`
