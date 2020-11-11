@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  StatusBar,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-  Keyboard,
-} from "react-native";
+import { StatusBar, KeyboardAvoidingView } from "react-native";
 import styled from "styled-components/native";
 import Btn from "../../components/Auth/Btn";
 import Input from "../../components/Auth/Input";
@@ -21,6 +16,8 @@ const InputContainer = styled.View`
 `;
 
 export default () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -31,6 +28,18 @@ export default () => {
         <StatusBar barStyle="darkcontent" />
         <KeyboardAvoidingView behavior="position">
           <InputContainer>
+            <Input
+              value={firstName}
+              placeholder="First Name"
+              autoCapitalize="none"
+              stateFn={setFirstName}
+            />
+            <Input
+              value={lastName}
+              placeholder="Last Name"
+              autoCapitalize="none"
+              stateFn={setLastName}
+            />
             <Input
               value={username}
               placeholder="Username"
@@ -44,7 +53,7 @@ export default () => {
               stateFn={setPassword}
             ></Input>
           </InputContainer>
-          <Btn text={"Sign In"} accent onPress={handleSubmet}></Btn>
+          <Btn text={"Sign Up"} accent onPress={handleSubmet}></Btn>
         </KeyboardAvoidingView>
       </Container>
     </DismissKeyboard>
