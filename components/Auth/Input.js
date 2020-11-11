@@ -1,8 +1,7 @@
 import React from "react";
-import { TouchableOpacity, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
-import colors from "../../colors";
 
 const { width } = Dimensions.get("screen");
 
@@ -22,8 +21,10 @@ const Input = ({
   isPassword = false,
   autoCapitalize,
   stateFn,
+  keyboardType,
 }) => (
   <Container
+    keyboardType={keyboardType}
     value={value}
     placeholder={placeholder}
     secureTextEntry={isPassword ? true : false}

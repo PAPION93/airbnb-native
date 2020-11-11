@@ -67,3 +67,7 @@
 ### Image Blur
 
 `expo install expo-blur`
+
+### API
+
+`npm install axios`
