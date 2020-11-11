@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import { StatusBar } from "react-native";
 import { BlurView } from "expo-blur";
-import Btn from "../components/Auth/Btn";
+import Btn from "../../components/Auth/Btn";
 
 const LOGO_URL =
   "https://www.pinclipart.com/picdir/big/52-526160_aribnb-logo-airbnb-logo-no-background-clipart.png";
@@ -18,11 +18,14 @@ const Image = styled.Image`
 `;
 
 const Logo = styled.Image`
+  margin-top: 100px;
   width: 110px;
   height: 120px;
 `;
 
-const BtnContainer = styled.View``;
+const BtnContainer = styled.View`
+  margin-top: 40px;
+`;
 
 export default ({ navigation }) => {
   const goToSignUp = () => navigation.navigate("SignUp");
@@ -46,7 +49,7 @@ export default ({ navigation }) => {
           <Btn onPress={goToSignIn} text={"Sign In"} />
         </BtnContainer>
       </BlurView>
-      <Image source={require("../assets/loginBg.jpeg")} />
+      <Image source={require("../../assets/loginBg.jpeg")} />
       <StatusBar barStyle="light-content" />
     </Container>
   );
