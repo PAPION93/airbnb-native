@@ -5,7 +5,7 @@ import Btn from "../../components/Auth/Btn";
 import Input from "../../components/Auth/Input";
 import DismissKeyboard from "../../components/DismissKeyboard";
 import { isEmail } from "../../utils";
-import { createAccount } from "../../api";
+import api from "../../api";
 
 const Container = styled.View`
   flex: 1;
@@ -17,12 +17,13 @@ const InputContainer = styled.View`
   margin-bottom: 30px;
 `;
 
-export default () => {
+export default ({ navigation: { navigate } }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const validateForm = () => {
+  const [loading, setLoading] = useState(false);
+  const isFormValid = () => {
     if (
       firstName === "" ||
       lastName === "" ||
@@ -30,28 +31,37 @@ export default () => {
       password === ""
     ) {
       alert("All fields are required.");
-      return;
+      return false;
     }
 
     if (!isEmail(email)) {
       alert("Please add a valid email.");
-      return;
+      return false;
     }
+    return true;
   };
 
-  const handleSubmet = async () => {
-    validateForm();
+  const handleSubmit = async () => {
+    if (!isFormValid()) {
+      return;
+    }
+    setLoading(true);
     try {
-      const { status } = await createAccount({
+      const { status } = await api.createAccount({
         first_name: firstName,
         last_name: lastName,
         email,
         username: email,
         password,
       });
-      console.log(status);
+      if (status === 201) {
+        alert("Account created. Sign in, plase");
+        navigate("SignIn", { email, password });
+      }
     } catch (e) {
-      console.warn(e);
+      alert("The email is taken");
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -86,7 +96,12 @@ export default () => {
               stateFn={setPassword}
             ></Input>
           </InputContainer>
-          <Btn text={"Sign Up"} accent onPress={handleSubmet}></Btn>
+          <Btn
+            loading={loading}
+            text={"Sign Up"}
+            accent
+            onPress={handleSubmit}
+          ></Btn>
         </KeyboardAvoidingView>
       </Container>
     </DismissKeyboard>
