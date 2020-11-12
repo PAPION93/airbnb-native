@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import utils from "../../../utils";
-import api from "../../../api";
+import utils from "../../utils";
+import api from "../../api";
 import SignUpPresenter from "./SignUpPresenter";
 
 export default ({ navigation: { navigate } }) => {
@@ -19,14 +19,12 @@ export default ({ navigation: { navigate } }) => {
       alert("All fields are required.");
       return false;
     }
-
     if (!utils.isEmail(email)) {
       alert("Please add a valid email.");
       return false;
     }
     return true;
   };
-
   const handleSubmit = async () => {
     if (!isFormValid()) {
       return;
@@ -41,7 +39,7 @@ export default ({ navigation: { navigate } }) => {
         password,
       });
       if (status === 201) {
-        alert("Account created. Sign in, plase");
+        alert("Account created. Sign in, please.");
         navigate("SignIn", { email, password });
       }
     } catch (e) {

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { StatusBar, KeyboardAvoidingView } from "react-native";
 import styled from "styled-components/native";
-import Btn from "../../../components/Auth/Btn";
-import Input from "../../../components/Auth/Input";
-import DismissKeyboard from "../../../components/DismissKeyboard";
+import Btn from "../../components/Auth/Btn";
+import Input from "../../components/Auth/Input";
+import DismissKeyboard from "../../components/DismissKeyboard";
 
 const Container = styled.View`
   flex: 1;
@@ -29,7 +29,7 @@ export default ({
 }) => (
   <DismissKeyboard>
     <Container>
-      <StatusBar barStyle="darkcontent" />
+      <StatusBar barStyle="dark-content" />
       <KeyboardAvoidingView behavior="position">
         <InputContainer>
           <Input
@@ -48,6 +48,7 @@ export default ({
             keyboardType={"email-address"}
             value={email}
             placeholder="Email"
+            ke
             autoCapitalize="none"
             stateFn={setEmail}
           />
@@ -56,7 +57,7 @@ export default ({
             placeholder="Password"
             isPassword={true}
             stateFn={setPassword}
-          ></Input>
+          />
         </InputContainer>
         <Btn
           loading={loading}

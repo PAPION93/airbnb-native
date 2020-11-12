@@ -18,7 +18,7 @@ const InputContainer = styled.View`
 export default ({ email, setEmail, password, setPassword, handleSubmit }) => (
   <DismissKeyboard>
     <Container>
-      <StatusBar barStyle="darkcontent" />
+      <StatusBar barStyle="dark-content" />
       <KeyboardAvoidingView behavior="position">
         <InputContainer>
           <Input
@@ -33,7 +33,7 @@ export default ({ email, setEmail, password, setPassword, handleSubmit }) => (
             placeholder="Password"
             isPassword={true}
             stateFn={setPassword}
-          ></Input>
+          />
         </InputContainer>
         <Btn text={"Sign In"} accent onPress={handleSubmit}></Btn>
       </KeyboardAvoidingView>
