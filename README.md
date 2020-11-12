@@ -71,3 +71,6 @@
 ### API
 
 `npm install axios`
+
+### Tabs
+`npm install @react-navigation/bottom-tabs`
