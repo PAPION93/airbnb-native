@@ -26,6 +26,7 @@ export default function App() {
   const loadAssets = () => {
     const images = [
       require("./assets/loginBg.jpeg"),
+      require("./assets/meat.jpeg"),
       "https://spng.subpng.com/20180404/woq/kisspng-le-case-del-borgantico-apartment-airbnb-renting-im-logo-5ac51890a19698.8834329915228663206619.jpg",
       // require("./assets/logo.jpeg"),
     ];
