@@ -20,6 +20,7 @@
 - simulator : cmd + d, Remote JS Debugger 선택
 
 ### App, Redux Setup 마친 후 내용 정리
+
 > 내가 뭘 했는지 전혀 모르겠다...정리
 
 1. image, font pre-load 내용 정리.
@@ -72,7 +73,10 @@
 `npm install axios`
 
 ### Tab Menu
+
 `npm install @react-navigation/bottom-tabs`
 
 ### React Native Swiper
+
 `npm i --save react-native-swiper@next`
+`npm i react-native-web-swiper --save` 로 교체
