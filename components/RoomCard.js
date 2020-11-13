@@ -69,7 +69,7 @@ const RoomCard = ({ id, isFav, isSuperHost, photos, name, price }) => (
           controlsProps={{
             PrevComponent: () => null,
             NextComponent: () => null,
-            dotActivityStyle: {
+            dotActiveStyle: {
               backgroundColor: "white",
             },
           }}
