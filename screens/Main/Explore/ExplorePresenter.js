@@ -61,7 +61,8 @@ export default ({ rooms, increasePage }) => {
             {rooms.map((room) => (
               <RoomCard
                 key={room.id}
-                isFav={room.user.is_fav}
+                id={room.id}
+                isFav={room.is_fav}
                 isSuperHost={room.user.superhost}
                 photos={room.photos}
                 name={room.name}

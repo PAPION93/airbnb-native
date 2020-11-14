@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import api from "../api";
+import { setFavs, setFav } from "./roomsSlice";
 
 const userSlice = createSlice({
   name: "users",
@@ -39,13 +40,24 @@ export const userLogin = (form) => async (dispatch) => {
 
 export const getFavs = () => async (dispatch, getState) => {
   const {
-    usersReducer: { id },
+    usersReducer: { id, token },
   } = getState();
 
   try {
-    const { data } = await api.favs(id);
+    const { data } = await api.favs(id, token);
+    dispatch(setFavs(data));
+  } catch (e) {
+    console.warn(e);
+  }
+};
 
-    console.log(data);
+export const toggleFav = (roomId) => async (dispatch, getState) => {
+  const {
+    usersReducer: { id, token },
+  } = getState();
+  try {
+    const { data, status } = await api.toggleFavs(id, roomId, token);
+    dispatch(setFav({ roomId }));
   } catch (e) {
     console.warn(e);
   }
