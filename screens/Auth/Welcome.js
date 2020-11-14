@@ -38,7 +38,7 @@ export default ({ navigation }) => {
         tint="light"
         style={{
           flex: 1,
-          witdh: "100%",
+          width: "100%",
           alignItems: "center",
           justifyContent: "center",
         }}

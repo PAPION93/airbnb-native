@@ -80,3 +80,7 @@
 
 `npm i --save react-native-swiper@next`
 `npm i react-native-web-swiper --save` 로 교체
+
+### MapView
+
+`expo install react-native-maps`
