@@ -115,7 +115,7 @@ export default ({ route: { params }, navigation }) => {
               altitude: 10 * 200,
               pitch: 15,
               heading: 0,
-              zoom: 0,
+              zoom: 10,
             }}
             zoomEnabled={false}
             scrollEnabled={false}
