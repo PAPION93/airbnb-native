@@ -1,18 +1,18 @@
-### settings
+### setting logs
 
-1. `npm -i -g expo-cli`
-2. `expo init airbnb-native`
-   - blank
-3. `expo login`
-   - `enter i` : iOS simulator
-4. `export start`
-5. `npm i @expo/vector-icons`
-6. `expo install expo-asset`
-7. `expo install expo-font`
-8. `npm i @reduxjs/toolkit`
-9. `npm i redux`
-10. `npm i react-redux`
-11. `npm add redux-persist`
+- `npm -i -g expo-cli`
+- `expo init airbnb-native`
+  - blank
+- `expo login`
+  - `enter i` : iOS simulator
+- `export start`
+- `npm add @expo/vector-icons`
+- `expo install expo-asset`
+- `expo install expo-font`
+- `npm i @reduxjs/toolkit`
+- `npm i redux`
+- `npm i react-redux`
+- `npm i redux-persist`
 
 ### React Native Debugger
 
@@ -51,11 +51,12 @@
 
 4. PersistGate component 정리
 
-   - `PersistGate`는 핸드폰에 state를 저장할 수 있게 해준다.
-   - `persistor`는 `store.js`에서 만들어진다.
-   - `persistReducer()`는 `rootReducer`의 변화를 감지하고 그 변화를 핸드폰에 저장한다.
+   - 사용자의 로그인 세션 등은 핸드폰에 `persist(저장)`하여야 한다. 이때 `Redux Persist`를 이용하면 `Redux Store`에 저장될때 자동으로 핸드폰에 저장된다.
+   - `Reducer`, `Store` 둘다 `persist`하여야 한다.
+   - `PersistGate`는 핸드폰에 state를 `persist`할 수 있게 해준다.
+   - `persistReducer()`는 `redux persist`에게 `rootReducer`에 변화가 있을 때 마다 `persistConfig`에 설정한대로 매번 저장하라고 한다.
    - 또한 `reducer`를 `load`할 때 `disk`에서 `reducer`를 `loading` 해온다.
-   - `redux toolkit`은 자체 `action`이 있기 때문에 `persist`에서 만든 `action`은 `Redux store`가 무시할 수 있도록 설정한다.
+   - `redux toolkit`은 자체 `action`이 있기 때문에 `persist`에서 만든 `action`은 무시할 수 있도록 설정한다.
 
 ### React Navigation
 
