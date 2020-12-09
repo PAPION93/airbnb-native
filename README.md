@@ -28,13 +28,13 @@
    - App.js
 
      1. <AppLoading> component가 `loadAssets()`를 호출한다.
-     2. `loadAssets()`는 image와 font를 pre-load 한다.
+     2. `loadAssets()`는 `image`와 `font`를 `pre-load` 한다.
 
         - `cacheImages`, `cacheFonts` 두 함수는 각각 images, fonts array를 인자로 받아 promise array를 리턴한다.
         - `loadAssets()`는 preload한 promise.all을 리턴한다.
 
      3. <AppLoading> component는 pre-load가 끝나면 `handleFinish()` 를 실행한다.
-        - isReady `state`를 `true` 로 변경한다.
+        - `isReady`를 `true`로 변경한다.
      4. 마지막으로 <Provier> 등 컴포넌트를 리턴한다.
 
 2. Redux store 흐름 정리
@@ -53,9 +53,9 @@
 
    - 사용자의 로그인 세션 등은 핸드폰에 `persist(저장)`하여야 한다. 이때 `Redux Persist`를 이용하면 `Redux Store`에 저장될때 자동으로 핸드폰에 저장된다.
    - `Reducer`, `Store` 둘다 `persist`하여야 한다.
-   - `PersistGate`는 핸드폰에 state를 `persist`할 수 있게 해준다.
    - `persistReducer()`는 `redux persist`에게 `rootReducer`에 변화가 있을 때 마다 `persistConfig`에 설정한대로 매번 저장하라고 한다.
    - 또한 `reducer`를 `load`할 때 `disk`에서 `reducer`를 `loading` 해온다.
+   - `PersistGate`는 화면 `rendering`을 위해 핸드폰에 저장된 `state`를 `load`한다.
    - `redux toolkit`은 자체 `action`이 있기 때문에 `persist`에서 만든 `action`은 무시할 수 있도록 설정한다.
 
 ### React Navigation
